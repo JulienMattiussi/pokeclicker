@@ -90,7 +90,9 @@ class QuestLineHelper {
         const talkToOldMan = new TalkToNPCQuest(ViridianCityOldMan2, 'Talk to the Old Man in Viridian City to learn about catching.', OldManReward);
         tutorial.addQuest(talkToOldMan);
 
-        const catch5Pidgey = new CustomQuest(5, 30, 'Use what you\'ve learned to catch 5 Pidgey. Talk to the Old Man again if you need a reminder.', () => App.game.statistics.pokemonCaptured[PokemonHelper.getPokemonByName('Pidgey').id]());
+        const catch5Pidgey = new CustomQuest(5, 30, `Use what you\'ve learned to catch 5 ${
+            PokemonHelper.displayName("Pidgey")()
+        }. Talk to the Old Man again if you need a reminder.`, () => App.game.statistics.pokemonCaptured[PokemonHelper.getPokemonByName('Pidgey').id]());
         tutorial.addQuest(catch5Pidgey);
 
         // Buy Dungeon ticket
@@ -163,7 +165,9 @@ class QuestLineHelper {
             });
         };
 
-        const talkToBillsGrandpa2 = new TalkToNPCQuest(BillsGrandpa2, 'Show your Jigglypuff to Bill\'s Grandpa.', MoonStoneReward);
+        const talkToBillsGrandpa2 = new TalkToNPCQuest(BillsGrandpa2, `Show your ${
+            PokemonHelper.displayName("Jigglypuff")()
+        } to Bill\'s Grandpa.`, MoonStoneReward);
         BillsGrandpaQuestLine.addQuest(talkToBillsGrandpa2);
 
         const blueRound = new CaptureSpecificPokemonQuest('Oddish', 'Catch the desired Pokémon.', 1);
@@ -187,7 +191,9 @@ class QuestLineHelper {
             });
         };
 
-        const talkToBillsGrandpa3 = new TalkToNPCQuest(BillsGrandpa3, 'Show your Oddish to Bill\'s Grandpa.', LeafStoneReward);
+        const talkToBillsGrandpa3 = new TalkToNPCQuest(BillsGrandpa3, `Show your ${
+            PokemonHelper.displayName("Oddish")()
+        } to Bill\'s Grandpa.`, LeafStoneReward);
         BillsGrandpaQuestLine.addQuest(talkToBillsGrandpa3);
 
         const redSphere = new CaptureSpecificPokemonQuest('Staryu', 'Catch the desired Pokémon.', 1);
@@ -211,7 +217,9 @@ class QuestLineHelper {
             });
         };
 
-        const talkToBillsGrandpa4 = new TalkToNPCQuest(BillsGrandpa4, 'Show your Staryu to Bill\'s Grandpa.', WaterStoneReward);
+        const talkToBillsGrandpa4 = new TalkToNPCQuest(BillsGrandpa4, `Show your ${
+            PokemonHelper.displayName("Staryu")()
+        } to Bill\'s Grandpa.`, WaterStoneReward);
         BillsGrandpaQuestLine.addQuest(talkToBillsGrandpa4);
 
         const loyalRoar = new CaptureSpecificPokemonQuest('Growlithe', 'Catch the desired Pokémon.', 1);
@@ -235,7 +243,9 @@ class QuestLineHelper {
             });
         };
 
-        const talkToBillsGrandpa5 = new TalkToNPCQuest(BillsGrandpa5, 'Show your Growlithe to Bill\'s Grandpa.', FireStoneReward);
+        const talkToBillsGrandpa5 = new TalkToNPCQuest(BillsGrandpa5, `Show your ${
+            PokemonHelper.displayName("Growlithe")()
+        } to Bill\'s Grandpa.`, FireStoneReward);
         BillsGrandpaQuestLine.addQuest(talkToBillsGrandpa5);
 
         const yellowAndRed = new CaptureSpecificPokemonQuest('Pikachu', 'Catch the desired Pokémon.', 1);
@@ -259,7 +269,9 @@ class QuestLineHelper {
             });
         };
 
-        const talkToBillsGrandpa6 = new TalkToNPCQuest(BillsGrandpa6, 'Show your Pikachu to Bill\'s Grandpa.', ThunderStoneReward);
+        const talkToBillsGrandpa6 = new TalkToNPCQuest(BillsGrandpa6, `Show your ${
+            PokemonHelper.displayName("Pikachu")()
+        } to Bill\'s Grandpa.`, ThunderStoneReward);
         BillsGrandpaQuestLine.addQuest(talkToBillsGrandpa6);
 
         const fightBillsGrandpa = new CustomQuest(1, 0, 'Bill\'s Grandpa would like to have a battle with you!', () => App.game.statistics.temporaryBattleDefeated[GameConstants.getTemporaryBattlesIndex('Bill\'s Grandpa')]());
@@ -270,7 +282,9 @@ class QuestLineHelper {
             App.game.party.gainPokemonByName('Eevee');
             Notifier.notify({
                 title: BillsGrandpaQuestLine.name,
-                message: 'Bill\'s Grandpa has given you an Eevee, treat it well!',
+                message: `Bill\'s Grandpa has given you an ${
+                    PokemonHelper.displayName("Eevee")()
+                }, treat it well!`,
                 type: NotificationConstants.NotificationOption.success,
                 sound: NotificationConstants.NotificationSound.General.new_catch,
                 timeout: 3e4,
